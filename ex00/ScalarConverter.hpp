@@ -6,7 +6,7 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:21:16 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/22 15:21:31 by amaury           ###   ########.fr       */
+/*   Updated: 2025/11/25 23:37:11 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 #define ScalarConverter_HPP
 
 #include <iostream>
-#include <vector>
-#include <string>
 #include <sstream>
 #include <limits>
+#include <cstdlib>
+#include <iomanip>
 
 class ScalarConverter {
     private:
         long double                 value;   
-        int                         status;
         bool                        specialValue;
     public:
         ScalarConverter();
@@ -32,7 +31,7 @@ class ScalarConverter {
         ScalarConverter &operator=(ScalarConverter const &other);
     
         void    setInput(std::string input);
-        int     parsingValue(std::string input);
+        void    parsingValue(std::string &input);
         
         void    stringToChar();
         void    stringToInt();

@@ -6,7 +6,7 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 16:44:18 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/22 18:03:46 by amaury           ###   ########.fr       */
+/*   Updated: 2025/11/25 23:44:49 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,21 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
-    if (dynamic_cast<A*>(&p) != NULL)
+    try {
+        (void)dynamic_cast<A&>(p);
         std::cout << "Find A" << std::endl;
-    else if (dynamic_cast<B*>(&p) != NULL)
-        std::cout << "Find B" << std::endl;
-    else
-        std::cout << "Find C" << std::endl;
+    }
+    catch(std::exception &e) {
+        (void)e;
+        try {
+            (void)dynamic_cast<B&>(p);
+            std::cout << "Find B" << std::endl;
+        }
+        catch (std::exception &e) {
+            (void)e;
+            std::cout << "Find C" << std::endl;
+        }
+    }
 }
 
 int main() {
