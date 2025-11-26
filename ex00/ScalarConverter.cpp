@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:21:01 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/25 23:40:07 by amaury           ###   ########.fr       */
+/*   Updated: 2025/11/26 09:36:20 by amblanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,22 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &other) {
 
 void    ScalarConverter::setInput(std::string input) {
     parsingValue(input);
-    if (specialValue == false && input[input.size() - 1] == 'f')
+    if (specialValue == false && input.size() != 1 && input[input.size() - 1] == 'f')
         input.erase(input.size() - 1);
     std::stringstream ss(input);
     ss >> value;
-    if ((ss.fail() || !ss.eof()) && specialValue == false) {
-        std::cerr << "Invalid Input : \'" << input << "\'" << std::endl;
+    if (input.size() == 1 && isascii(input[0]))
+        value = static_cast<long double>(input[0]);
+    else if ((ss.fail() || !ss.eof()) && specialValue == false) {
+        std::cerr << "Invalid Input" << std::endl;
         return ;
     }
     stringToChar();
     stringToInt();
+    if (value > 1e6L || value < -1e6L)
+        std::cout << std::scientific << std::setprecision(1);
+    else
+        std::cout << std::fixed << std::setprecision(1);
     stringTofloat(input);
     stringToDouble(input);
 }

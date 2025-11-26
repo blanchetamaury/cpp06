@@ -6,7 +6,7 @@ SRC = main.cpp ScalarConverter.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
-NAME = ex00
+NAME = convert
 
 all: $(NAME)
 
