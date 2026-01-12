@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 16:10:36 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/22 16:27:55 by amaury           ###   ########.fr       */
+/*   Updated: 2026/01/12 09:00:25 by amblanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
 Serializer::Serializer() {}
-
 Serializer::~Serializer() {}
-
 Serializer::Serializer(Serializer const &other) { (void)other; }
-
 Serializer &Serializer::operator=(Serializer const &other) {
     (void)other;
     return (*this);

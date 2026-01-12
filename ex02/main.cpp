@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 16:44:18 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/25 23:44:49 by amaury           ###   ########.fr       */
+/*   Updated: 2026/01/12 09:06:43 by amblanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,27 @@ Base *generate(void) {
 
 void identify(Base* p) {
     if (dynamic_cast<A*>(p) != NULL)
-        std::cout << "Find A" << std::endl;
+        std::cout << "(pointed) Find A" << std::endl;
     else if (dynamic_cast<B*>(p) != NULL)
-        std::cout << "Find B" << std::endl;
+        std::cout << "(pointed) Find B" << std::endl;
     else
-        std::cout << "Find C" << std::endl;
+        std::cout << "(pointed) Find C" << std::endl;
 }
 
 void identify(Base& p) {
     try {
         (void)dynamic_cast<A&>(p);
-        std::cout << "Find A" << std::endl;
+        std::cout << "(referenced) Find A" << std::endl;
     }
     catch(std::exception &e) {
         (void)e;
         try {
             (void)dynamic_cast<B&>(p);
-            std::cout << "Find B" << std::endl;
+            std::cout << "(referenced) Find B" << std::endl;
         }
         catch (std::exception &e) {
             (void)e;
-            std::cout << "Find C" << std::endl;
+            std::cout << "(referenced) Find C" << std::endl;
         }
     }
 }
@@ -67,6 +67,6 @@ int main() {
     Base *tmp = generate();
 
     identify(tmp);
-    identify(tmp);
+    identify(*tmp);
     delete tmp;
 }

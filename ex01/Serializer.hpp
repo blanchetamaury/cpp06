@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 16:04:18 by amaury            #+#    #+#             */
-/*   Updated: 2025/11/22 16:41:22 by amaury           ###   ########.fr       */
+/*   Updated: 2026/01/12 08:59:31 by amblanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ struct Data
 
 class Serializer {
     private:
+        Serializer();
         ~Serializer();
         Serializer(Serializer const &other);
         Serializer &operator=(Serializer const &other);  
-        Serializer();
     
     public:
         static uintptr_t serialize(Data* ptr);

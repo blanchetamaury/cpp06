@@ -6,7 +6,7 @@
 /*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 15:21:01 by amaury            #+#    #+#             */
-/*   Updated: 2026/01/12 08:50:49 by amblanch         ###   ########.fr       */
+/*   Updated: 2026/01/12 09:00:12 by amblanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::~ScalarConverter() {}
-ScalarConverter::ScalarConverter(std::string input) {convert(input);}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &other) {
-    (void)other;
-}
-
+ScalarConverter::ScalarConverter(const ScalarConverter &other) { (void)other; }
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &other) {
     (void)other;
     return (*this);
